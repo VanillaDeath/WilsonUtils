@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32519.111
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilsonUtils", "WilsonUtils\WilsonUtils.csproj", "{1BC6F06E-BA5D-44A3-B456-DEED06E03565}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = Wilson's Utilities
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BC6F06E-BA5D-44A3-B456-DEED06E03565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BC6F06E-BA5D-44A3-B456-DEED06E03565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BC6F06E-BA5D-44A3-B456-DEED06E03565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BC6F06E-BA5D-44A3-B456-DEED06E03565}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {842662F0-BA1F-41CB-9344-51976239E4C3}
+	EndGlobalSection
+EndGlobal

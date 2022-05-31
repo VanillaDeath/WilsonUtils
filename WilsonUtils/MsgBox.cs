@@ -97,12 +97,10 @@ public partial class MsgBox : Form
     {
         // Reduce List to usable Button objects
         buttons ??= new();
-        buttons = buttons
-            .Where(button => button?.Text is not null && button.Text.Trim().Length > 0)
-            .ToList();
+        _ = buttons.RemoveAll(button => button?.Text is null || button.Text.Trim().Length == 0);
 
         // Show an OK Button if no usable Buttons
-        if (buttons.Count < 1)
+        if (buttons.Count == 0)
         {
             buttons.Add(_presets[0]);
         }
@@ -112,7 +110,7 @@ public partial class MsgBox : Form
         bool allEqual = buttons.All(button => button.TabIndex == i);
 
         // Iterate through each button that has Text
-        buttons.ForEach(button =>
+        foreach (Button button in buttons)
         {
             // Trigger each to close dialog, setting the ButtonClicked property to the Button object,
             // and the Result property to the button's Tag object
@@ -143,7 +141,7 @@ public partial class MsgBox : Form
 
             // Stretch buttons to fit Text
             button.AutoSize = true;
-        });
+        }
 
         // Reverse order since flow panel populates right to left
         buttons.Reverse();

@@ -79,11 +79,29 @@ namespace WilsonUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to load any settings from configuration file..
+        /// </summary>
+        internal static string CantLoadSettings {
+            get {
+                return ResourceManager.GetString("CantLoadSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Ignore.
         /// </summary>
         internal static string ignoreBtn_Text {
             get {
                 return ResourceManager.GetString("ignoreBtn.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No valid setting key provided..
+        /// </summary>
+        internal static string InvalidSettingName {
+            get {
+                return ResourceManager.GetString("InvalidSettingName", resourceCulture);
             }
         }
         
@@ -115,11 +133,56 @@ namespace WilsonUtils.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset configuration file to defaults?.
+        /// </summary>
+        internal static string ResetConfigFile {
+            get {
+                return ResourceManager.GetString("ResetConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Retry.
         /// </summary>
         internal static string retryBtn_Text {
             get {
                 return ResourceManager.GetString("retryBtn.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings file setting &quot;{1}&quot; not found (section &quot;{0}&quot;)..
+        /// </summary>
+        internal static string SettingsKeyNotFound {
+            get {
+                return ResourceManager.GetString("SettingsKeyNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration reset failed..
+        /// </summary>
+        internal static string SettingsResetFailed {
+            get {
+                return ResourceManager.GetString("SettingsResetFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Possible reasons include: Program is in a protected directory that cannot be written to by a non-elevated program, configuration file is locked by another process, program is unable to access filesystem due to antimalware, antivirus, or other security software..
+        /// </summary>
+        internal static string SettingsResetFailedDesc {
+            get {
+                return ResourceManager.GetString("SettingsResetFailedDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings file section &quot;{0}&quot; not found..
+        /// </summary>
+        internal static string SettingsSectionNotFound {
+            get {
+                return ResourceManager.GetString("SettingsSectionNotFound", resourceCulture);
             }
         }
         

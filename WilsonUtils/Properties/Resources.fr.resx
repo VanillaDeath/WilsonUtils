@@ -118,51 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="abortBtn.Text" xml:space="preserve">
-    <value>&amp;Abort</value>
+    <value>&amp;Abandonner</value>
   </data>
   <data name="cancelBtn.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="CantLoadSettings" xml:space="preserve">
-    <value>Unable to load any settings from configuration file.</value>
+    <value>Annuler</value>
   </data>
   <data name="ignoreBtn.Text" xml:space="preserve">
-    <value>&amp;Ignore</value>
-  </data>
-  <data name="InvalidSettingName" xml:space="preserve">
-    <value>No valid setting key provided.</value>
+    <value>&amp;Ignorer</value>
   </data>
   <data name="noBtn.Text" xml:space="preserve">
-    <value>&amp;No</value>
+    <value>&amp;Non</value>
   </data>
   <data name="okBtn.Text" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="OnlyNumber" xml:space="preserve">
-    <value>You can only type a number here.</value>
-  </data>
-  <data name="ResetConfigFile" xml:space="preserve">
-    <value>Reset configuration file to defaults?</value>
+    <value>Vous ne pouvez taper qu'un nombre ici.</value>
   </data>
   <data name="retryBtn.Text" xml:space="preserve">
-    <value>&amp;Retry</value>
-  </data>
-  <data name="SettingsKeyNotFound" xml:space="preserve">
-    <value>Settings file setting "{1}" not found (section "{0}").</value>
-  </data>
-  <data name="SettingsResetFailed" xml:space="preserve">
-    <value>Configuration reset failed.</value>
-  </data>
-  <data name="SettingsResetFailedDesc" xml:space="preserve">
-    <value>Possible reasons include: Program is in a protected directory that cannot be written to by a non-elevated program, configuration file is locked by another process, program is unable to access filesystem due to antimalware, antivirus, or other security software.</value>
-  </data>
-  <data name="SettingsSectionNotFound" xml:space="preserve">
-    <value>Settings file section "{0}" not found.</value>
+    <value>&amp;Refaire</value>
   </data>
   <data name="UnacceptableCharacter" xml:space="preserve">
-    <value>Unacceptable Character</value>
+    <value>Frappe de clavier inacceptable</value>
   </data>
   <data name="yesBtn.Text" xml:space="preserve">
-    <value>&amp;Yes</value>
+    <value>&amp;Oui</value>
   </data>
 </root>

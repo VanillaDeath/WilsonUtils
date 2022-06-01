@@ -9,14 +9,9 @@ using WilsonUtils.Properties;
 
 namespace WilsonUtils
 {
-    public class Settings
+    public class Config : Configuration
     {
         #region Properties
-
-        public Configuration Config
-        {
-            get; internal set;
-        } = new();
 
         public ApplicationSettingsBase ConfigDefaults
         {
@@ -37,15 +32,23 @@ namespace WilsonUtils
 
         #region Constructors
 
-        public Settings(string configFile, ApplicationSettingsBase defaults = null, string programName = null)
+        public Config(string configFile, ApplicationSettingsBase defaults = null, string programName = null) : base()
         {
             ConfigDefaults = defaults;
             ProgramName = programName ?? Defaults.Default.DefaultProgramName ?? Assembly.GetExecutingAssembly().GetName().Name;
             ConfigFile = configFile ?? (string)ConfigDefaults?["DefaultConfigFile"] ?? Defaults.Default.DefaultConfigFile;
-            _ = Load();
         }
 
         #endregion Constructors
+
+        #region Static Methods
+
+        public static Config Load(string configFile, ApplicationSettingsBase defaults = null, string programName = null)
+        {
+            return new Config(configFile, defaults, programName).Load();
+        }
+
+        #endregion Static Methods
 
         #region Instance Methods
 
@@ -53,18 +56,22 @@ namespace WilsonUtils
         {
             try
             {
-                if (!Config.Contains(section ??= (string)ConfigDefaults?["DefaultSection"]) || !Config[section].Contains(key ??= ""))
+                if (!Contains(section ??= (string)ConfigDefaults?["DefaultSection"]) || !this[section].Contains(key ??= ""))
                 {
-                    if (ConfigDefaults[$"{section}_{key}"] is not null)
+                    if (ConfigDefaults?[$"{section}_{key}"] is not null)
                     {
-                        Set(key, ConfigDefaults?[$"{section}_{key}"], section);
+                        Set(key, ConfigDefaults?[$"{section}_{key}"], section, save: true);
                     }
-                    if (!Config.Contains(section) || !Config[section].Contains(key))
+                    if (!Contains(section))
+                    {
+                        throw new KeyNotFoundException(string.Format(Resources.SettingsSectionNotFound, section));
+                    }
+                    if (!this[section].Contains(key))
                     {
                         throw new KeyNotFoundException(string.Format(Resources.SettingsKeyNotFound, section, key));
                     }
                 }
-                return Config[section][key].GetValue<T>();
+                return this[section][key].GetValue<T>();
             }
             catch (Exception e)
             {
@@ -85,24 +92,24 @@ namespace WilsonUtils
             }
         }
 
-        public static Configuration Load(string configFile)
-        {
-            return File.Exists(configFile) ? Configuration.LoadFromFile(configFile) : default;
-        }
-
-        public bool Load()
+        public Config Load()
         {
             if (!File.Exists(ConfigFile))
             {
-                return false;
+                Save();
+                return this;
             }
-            Config = Load(ConfigFile);
-            return true;
+            Configuration load = LoadFromFile(ConfigFile) ?? new();
+            foreach (Section section in load)
+            {
+                Add(section);
+            }
+            return this;
         }
 
         public void Save()
         {
-            Config.SaveToFile(ConfigFile);
+            SaveToFile(ConfigFile);
         }
 
         public void Set<T>(string key, T value, string section = null, bool save = true)
@@ -113,7 +120,7 @@ namespace WilsonUtils
                 {
                     throw new ArgumentException(Resources.InvalidSettingName);
                 }
-                Config[section ?? (string)ConfigDefaults?["DefaultSection"]][key].SetValue(value);
+                this[section ?? (string)ConfigDefaults?["DefaultSection"]][key].SetValue(value);
                 if (save)
                 {
                     Save();

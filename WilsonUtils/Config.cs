@@ -11,6 +11,12 @@ namespace WilsonUtils
 {
     public class Config : Configuration
     {
+        #region _CONSTANTS
+
+        private const string _DEFAULT_CONFIG_FILE = "settings.cfg";
+
+        #endregion _CONSTANTS
+
         #region Properties
 
         public ApplicationSettingsBase ConfigDefaults
@@ -21,7 +27,7 @@ namespace WilsonUtils
         public string ConfigFile
         {
             get; set;
-        } = Defaults.Default.DefaultConfigFile;
+        }
 
         public string ProgramName
         {
@@ -35,8 +41,8 @@ namespace WilsonUtils
         public Config(string configFile, ApplicationSettingsBase defaults = null, string programName = null) : base()
         {
             ConfigDefaults = defaults;
-            ProgramName = programName ?? Defaults.Default.DefaultProgramName ?? Assembly.GetExecutingAssembly().GetName().Name;
-            ConfigFile = configFile ?? (string)ConfigDefaults?["DefaultConfigFile"] ?? Defaults.Default.DefaultConfigFile;
+            ProgramName = programName ?? Assembly.GetExecutingAssembly().GetName().Name;
+            ConfigFile = configFile ?? (string)ConfigDefaults?["DefaultConfigFile"] ?? _DEFAULT_CONFIG_FILE;
         }
 
         #endregion Constructors
